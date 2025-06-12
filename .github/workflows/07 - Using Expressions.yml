@@ -1,4 +1,6 @@
 name: 07 - Using Expressions
+run-name: 07 - Using Expressions | DEBUG - ${{ "inputs.debug" = "true" || "ON" || "OFF" }}
+
 on:
   #push:
   workflow_dispatch:
@@ -14,10 +16,10 @@ jobs:
       - name: ${{ inputs.debug }} Print start-up data
         run: |
             if [ "${{ inputs.debug }}" = "true" ]; then
-                echo "Trigered by" ${{ github.event_name }}
-                echo "Branch " ${{ github.ref_name }}
-                echo "Commit SHA:" ${{ github.sha }}
-                echo "Runner OS" ${{ runner.os }}
+                echo "Trigered by" ${{ github.event_name }}"
+                echo "Branch " ${{ github.ref_name }}"
+                echo "Commit SHA:" ${{ github.sha }}"
+                echo "Runner OS ${{ runner.os }}"
       - name: ${{ inputs.debug }} Print when triggered
         run: |
             if [ "${{ inputs.debug }}" = "true" ] && [ "${{ github.branch }}" = "main" ]; then
