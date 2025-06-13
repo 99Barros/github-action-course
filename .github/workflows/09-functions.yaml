@@ -14,7 +14,7 @@ jobs:
             echo "The PR labels are: ${{ github.event.pull_request.labels }}"
             echo "The PR labels json format are: ${{ toJson(github.event.pull_request.labels) }}" 
       - name: Bug step
-        if: ${{ failure() }} && ${{ contains(github.event.pull_request.title, 'fix') }}
+        if: ${{ failure() && contains(github.event.pull_request.title, 'fix') }}
         run: echo "I`m a bug fix"    
       - name: Sleep for 20 seconds
         run: sleep 20
