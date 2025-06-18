@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         name: ${{ matrix.operating-system }} - ${{ matrix.node-version }}
         strategy:
-            fail-fast: false
+            fail-fast: true
             matrix:
                 node-version: [18.x, 20.x]
                 operating-system: [ubuntu-latest, windows-latest]
