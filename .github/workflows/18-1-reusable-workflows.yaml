@@ -16,7 +16,7 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         outputs:
-            build-status: ${{ steps.deploy.outputs.build-status }}
+            build-status: ${{ steps.build.outputs.build-status }}
             url: ${{ steps.deploy.outputs.url }}
         steps:
             - name: Checkout repo
@@ -25,7 +25,7 @@ jobs:
               id: build
               run: |
                     echo "Building using directory ${{ inputs.target-directory }}"      
-                    echo "build-status='success'" >> "$GITHUB_OUTPUT"
+                    echo "build-status=success" >> "$GITHUB_OUTPUT"
             - name: Deploy
               id: deploy
               run: |
